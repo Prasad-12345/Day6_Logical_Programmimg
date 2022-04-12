@@ -491,13 +491,47 @@ public class Util {
 	/*
 	 * Simulate stopwatch program
 	 */
+	
+	public static void calculateTime() {
+			Scanner scanner = new Scanner(System.in);	
+			long time1 = 0, time2 = 0;	//variables to store times of clicks
+			System.out.println("Press the key \"Enter\" twice two measure the time difference between them");
+			String input = scanner.nextLine();	//stores user input
 
-	public static void stopwatch() {
-		
+			if(input.isEmpty()) {	//	enter key pressed
+				time1	= System.currentTimeMillis();
+			}
+
+			input = scanner.nextLine();
+			if(input.isEmpty()) {	//	enter key pressed
+				time2	= System.currentTimeMillis();
+			}
+			scanner.close();
+			System.out.println("Diffrence between two clicks is: " + ((int)(time2 - time1) / 1000) + " seconds.");
+		}
+	
+	/*
+	 * Program to generate random coupon number
+	 */
+
+	public static void couponNumber() {
+		char[] chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789".toCharArray();
+	     int max = 100000000;
+	     int random = (int) (Math.random()* max);
+	     StringBuffer sb = new StringBuffer();
+	     while (random>0)
+	     {
+	         sb.append(chars[random % chars.length]);
+	         random /= chars.length;
+	     }
+	     String couponCode = sb.toString();
+	     System.out.println("Coupon Code: "+couponCode);
 	}
+}
+	
 
 
 		
-}
+
 
     
